@@ -25,7 +25,12 @@ https://github.com/user-attachments/assets/29c1195a-1473-4c4e-9fd8-59029b284595
 - グループやプロジェクトごとに **ルームを作成**
 - 目的に応じたコミュニケーションの整理が可能
 - メンバー単位での利用を想定
-https://github.com/user-attachments/assets/1e3675c5-ce24-494e-bd35-d94e1518a0ec
+
+
+
+https://github.com/user-attachments/assets/11ae313b-4828-47b4-b351-86b9f0dd3154
+
+
 ---
 
 ### 写真作成・共有機能
