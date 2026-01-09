@@ -1,5 +1,5 @@
 # Swack
-![Adobe Express - Swack_pushers(オリジナル機能：画像送信機能) (1)](https://github.com/user-attachments/assets/93dec997-df4d-45bf-8ccf-7236e8099661)
+![Image](https://github.com/user-attachments/assets/619e4f05-4c22-49c1-b667-a7488623460c)
 
 ## 概要
 **Swack** は、チームやグループでのコミュニケーションと情報共有を円滑にする  
