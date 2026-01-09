@@ -1,5 +1,6 @@
 # Swack
-![Image](https://github.com/user-attachments/assets/619e4f05-4c22-49c1-b667-a7488623460c)
+<img width="1908" height="905" alt="demo1" src="https://github.com/user-attachments/assets/e7cf5ec5-0930-4136-9244-ceeac500d035" />
+
 
 ## 概要
 **Swack** は、チームやグループでのコミュニケーションと情報共有を円滑にする  
@@ -11,16 +12,29 @@
 
 ## 主な機能
 
+## ログイン機能
+
+Swack では、ユーザーごとにアカウントを作成し、安全にアプリを利用できる  
+**ログイン機能**を実装しています。
+
+https://github.com/user-attachments/assets/29c1195a-1473-4c4e-9fd8-59029b284595
+
 ### ルーム作成機能
+
+
 - グループやプロジェクトごとに **ルームを作成**
 - 目的に応じたコミュニケーションの整理が可能
 - メンバー単位での利用を想定
-
+https://github.com/user-attachments/assets/1e3675c5-ce24-494e-bd35-d94e1518a0ec
 ---
 
 ### 写真作成・共有機能
-- ルーム内で **写真の作成・共有**が可能
+- ルーム内で画像の共有が可能
 - チーム内でのアイデア共有や記録に活用できる
+
+
+https://github.com/user-attachments/assets/744e7b06-7275-4084-9c60-63cd8b6049d3
+
 
 ---
 
@@ -29,16 +43,29 @@
 - 利用者の好みや気分に合わせたカスタマイズが可能
 - 視認性や使いやすさの向上
 
----
 
-## Swackの特徴
-- シンプルで直感的な操作性
-- グループ利用を前提とした設計
-- チームコミュニケーションを支援する機能を搭載
+https://github.com/user-attachments/assets/a170d271-58b7-46e9-8a89-2647b1506de3
+
 
 ---
 
-## 今後の展望
-- 機能の拡張
-- ユーザー体験の向上
-- より柔軟なグループ管理機能の追加
+## PostgreSQL DB への接続
+
+### PostgreSQL 拡張機能の活用
+
+1. VSCode 左側のアイコンの中から「Database」を開く
+
+2. 「Create Connection」を押す
+
+3. 「Connect」内で以下の設定を入力し、下部の「＋ Connect」ボタンを押す
+
+- Name : DB
+- Host : 127.0.0.1 ※デフォルト
+- Port : 5432 ※デフォルト
+- Username : postgres ※デフォルト
+- Password : postgres
+- Database : postgres ※デフォルト
+
+4. PostgreSQL の DB に接続されれば準備完了
+
+- ※エラーになった場合は、PostgreSQL のインストール状況を確認する
