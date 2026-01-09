@@ -1,91 +1,44 @@
-# Web アプリケーション構築 2 実習ワークスペース
+# Swack
+![Adobe Express - Swack_pushers(オリジナル機能：画像送信機能) (1)](https://github.com/user-attachments/assets/93dec997-df4d-45bf-8ccf-7236e8099661)
 
-## VSCode に最初にインストールする 拡張機能
+## 概要
+**Swack** は、チームやグループでのコミュニケーションと情報共有を円滑にする  
+**グループウェアアプリケーション**です。
 
-### 入れ方
+プロジェクト単位や目的ごとにルームを作成し、メンバー同士が効率よくやり取りできる環境を提供します。
 
-1. 左の「拡張機能」ボタンを押す
-1. 検索ボックスに「@recommended」を入れる
-1. 「ワークスペースの推奨事項」に表示されている Extension をインストール
+---
 
-## PostgreSQL DB への接続
+## 主な機能
 
-### PostgreSQL 拡張機能の活用
+### ルーム作成機能
+- グループやプロジェクトごとに **ルームを作成**
+- 目的に応じたコミュニケーションの整理が可能
+- メンバー単位での利用を想定
 
-1. VSCode 左側のアイコンの中から「Database」を開く
+---
 
-2. 「Create Connection」を押す
+### 写真作成・共有機能
+- ルーム内で **写真の作成・共有**が可能
+- チーム内でのアイデア共有や記録に活用できる
 
-3. 「Connect」内で以下の設定を入力し、下部の「＋ Connect」ボタンを押す
+---
 
-- Name : DB
-- Host : 127.0.0.1 ※デフォルト
-- Port : 5432 ※デフォルト
-- Username : postgres ※デフォルト
-- Password : postgres
-- Database : postgres ※デフォルト
+### テーマカラー変更機能
+- アプリ全体の **テーマカラーを自由に変更**
+- 利用者の好みや気分に合わせたカスタマイズが可能
+- 視認性や使いやすさの向上
 
-4. PostgreSQL の DB に接続されれば準備完了
+---
 
-- ※エラーになった場合は、PostgreSQL のインストール状況を確認する
+## Swackの特徴
+- シンプルで直感的な操作性
+- グループ利用を前提とした設計
+- チームコミュニケーションを支援する機能を搭載
 
-## Controller と Service で実装するロジックの責任分界点について
+---
 
-【引用】[3.2. ドメイン層の実装](https://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/DomainLayer.html#service)
-
-本ガイドラインでは、Controller と Service で実装するロジックは、以下のルールに則って実装することを推奨する。
-
-- クライアントからリクエストされたデータに対する単項目チェック、相関項目チェックは Controller 側(Bean Validation または Spring Validator)で行う。
-- Service に渡すデータへの変換処理(Bean 変換、型変換、形式変換など)は、Service ではなく Controller 側で行う。
-- ビジネスルールに関わる処理は Service で行う。業務データへのアクセスは、Repository または O/R Mapper に委譲する。
-- Service から Controller に返却するデータ（クライアントへレスポンスするデータ）に対する値の変換処理(型変換、形式変換など)は、Service ではなく、Controller 側（View クラスなど）で行う。
-
-
-SELECT roomid, (SELECT username FROM users where userid = substring(roomname, 8, 12))
-FROM rooms
-WHERE roomid IN(SELECT roomid FROM joinroom WHERE userid = 'U0001') AND directed = true;
-
-
-CREATE SEQUENCE userid_seq START 5 INCREMENT 1 MINVALUE 1 MAXVALUE 9999 CACHE 1;
-
-CREATE SEQUENCE roomid_seq START 20 INCREMENT 1 MINVALUE 1 MAXVALUE 9999 CACHE 1;
-
-
-アカウントロック機能追加に伴う操作権限
-ALTER TABLE USERS ADD COLUMN FAILED_ATTEMPTS INT DEFAULT 0;
-ALTER TABLE USERS ADD COLUMN ACCOUNT_LOCKED CHAR(1) DEFAULT 'N';
-ALTER TABLE USERS ADD COLUMN LOCK_TIME TIMESTAMP NULL;
-ALTER TABLE USERS ADD COLUMN LAST_LOGIN_AT TIMESTAMP NULL;
-
-１ ログイン失敗回数
-２ ロックされているかどうか N or Y
-３ ロックされて日時
-４ 最後にログインした日時
-
-★つけるよう
-ALTER TABLE chatLog ADD star VARCHAR(10)
-
-
-
-上記まで記載済み
-
-
-ALTER TABLE chatLog
-ADD imgpath VARCHAR(500) DEFAULT NULL;
-
-未読メッセージ用
-CREATE TABLE IF NOT EXISTS room_last_read (
-    user_id VARCHAR(10) NOT NULL,
-    room_id VARCHAR(10) NOT NULL,
-    last_read_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (user_id, room_id)
-);
-
-インデックス作成
-CREATE INDEX idx_room_last_read_user ON room_last_read(user_id);
-CREATE INDEX idx_room_last_read_room ON room_last_read(room_id);
-
-ALTER TABLE room_last_read
-ADD CONSTRAINT uq_room_last_read UNIQUE (user_id, room_id);
-
-上記まで記載済み
+## 今後の展望
+- 機能の拡張
+- ユーザー体験の向上
+- より柔軟なグループ管理機能の追加
